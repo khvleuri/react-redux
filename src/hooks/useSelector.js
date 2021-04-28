@@ -67,10 +67,9 @@ function useSelectorWithStoreAndSubscription(
         const newStoreState = store.getState()
         const newSelectedState = latestSelector.current(newStoreState)
 
-        if (equalityFn(newSelectedState, latestSelectedState.current)) {
-          console.log("Does not render");
-          return
-        }
+        // if (equalityFn(newSelectedState, latestSelectedState.current)) {
+        //   return
+        // }
 
         latestSelectedState.current = newSelectedState
         latestStoreState.current = newStoreState
