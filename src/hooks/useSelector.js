@@ -91,7 +91,7 @@ function useSelectorWithStoreAndSubscription(
 
     console.log("Works");
     return () => subscription.tryUnsubscribe()
-  })
+  }, [])
 
   return selectedState
 }
