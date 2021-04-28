@@ -5,6 +5,7 @@ import Subscription from '../utils/Subscription'
 import { useIsomorphicLayoutEffect } from '../utils/useIsomorphicLayoutEffect'
 
 function Provider({ store, context, children }) {
+  console.info("Render Provider");
   const contextValue = useMemo(() => {
     const subscription = new Subscription(store)
     subscription.onStateChange = subscription.notifyNestedSubs

@@ -91,7 +91,7 @@ function useSelectorWithStoreAndSubscription(
 
 
     return () => subscription.tryUnsubscribe()
-  }, [])
+  }, [store, subscription])
 
   return selectedState
 }
