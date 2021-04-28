@@ -87,7 +87,8 @@ function useSelectorWithStoreAndSubscription(
     subscription.onStateChange = checkForUpdates
     subscription.trySubscribe()
 
-    checkForUpdates()
+    // checkForUpdates()
+    forceRender();
 
 
     return () => subscription.tryUnsubscribe()
