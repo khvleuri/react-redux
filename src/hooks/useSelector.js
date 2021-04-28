@@ -81,14 +81,15 @@ function useSelectorWithStoreAndSubscription(
         latestSubscriptionCallbackError.current = err
       }
 
-      // forceRender()
+      console.log("latestSelectedState", latestSelectedState);
+      console.log("latestStoreState", latestStoreState);
+      forceRender()
     }
 
     subscription.onStateChange = checkForUpdates
     subscription.trySubscribe()
 
-    // checkForUpdates()
-    forceRender();
+    checkForUpdates()
 
 
     return () => subscription.tryUnsubscribe()
