@@ -15,7 +15,7 @@ function Provider({ store, context, children }) {
   }, [store])
 
   const previousState = useMemo(() => store.getState(), [store])
-
+    console.log(previousState);
   useIsomorphicLayoutEffect(() => {
     const { subscription } = contextValue
     subscription.trySubscribe()
