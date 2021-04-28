@@ -89,6 +89,8 @@ function useSelectorWithStoreAndSubscription(
 
     checkForUpdates()
 
+    console.log(store);
+
     return () => subscription.tryUnsubscribe()
   }, [store, subscription])
 
