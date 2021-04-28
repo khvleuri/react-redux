@@ -67,9 +67,9 @@ function useSelectorWithStoreAndSubscription(
         const newStoreState = store.getState()
         const newSelectedState = latestSelector.current(newStoreState)
 
-        // if (equalityFn(newSelectedState, latestSelectedState.current)) {
-        //   return
-        // }
+        if (equalityFn(newSelectedState, latestSelectedState.current)) {
+          return
+        }
 
         latestSelectedState.current = newSelectedState
         latestStoreState.current = newStoreState
@@ -89,9 +89,9 @@ function useSelectorWithStoreAndSubscription(
 
     checkForUpdates()
 
-    console.log("Works");
+
     return () => subscription.tryUnsubscribe()
-  }, [])
+  }, [store, subscription])
 
   return selectedState
 }
