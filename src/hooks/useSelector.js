@@ -63,7 +63,7 @@ function useSelectorWithStoreAndSubscription(
 
   useIsomorphicLayoutEffect(() => {
     function checkForUpdates() {
-      try {
+
         const newStoreState = store.getState()
         const newSelectedState = latestSelector.current(newStoreState)
 
@@ -73,13 +73,25 @@ function useSelectorWithStoreAndSubscription(
 
         latestSelectedState.current = newSelectedState
         latestStoreState.current = newStoreState
-      } catch (err) {
-        // we ignore all errors here, since when the component
-        // is re-rendered, the selectors are called again, and
-        // will throw again, if neither props nor store state
-        // changed
+
         latestSubscriptionCallbackError.current = err
-      }
+      // try {
+      //   const newStoreState = store.getState()
+      //   const newSelectedState = latestSelector.current(newStoreState)
+
+      //   if (equalityFn(newSelectedState, latestSelectedState.current)) {
+      //     return
+      //   }
+
+      //   latestSelectedState.current = newSelectedState
+      //   latestStoreState.current = newStoreState
+      // } catch (err) {
+      //   // we ignore all errors here, since when the component
+      //   // is re-rendered, the selectors are called again, and
+      //   // will throw again, if neither props nor store state
+      //   // changed
+      //   latestSubscriptionCallbackError.current = err
+      // }
 
       console.log("latestSelectedState", latestSelectedState);
       console.log("latestStoreState", latestStoreState);
